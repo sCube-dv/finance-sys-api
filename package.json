@@ -1,0 +1,32 @@
+{
+  "name": "finance-sys-api",
+  "version": "1.0.0",
+  "description": "api to provide back-end to financial system",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sCube-dv/finance-sys-api.git"
+  },
+  "author": "Samuel Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sCube-dv/finance-sys-api/issues"
+  },
+  "homepage": "https://github.com/sCube-dv/finance-sys-api#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "mysql2": "^3.15.3",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
