@@ -1,3 +1,3 @@
-import User from "../models/Users";
+import User from "../models/Users.js";
 
-User.sync();
+await User.sync();

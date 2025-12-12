@@ -1,7 +1,7 @@
-import db from "../config/db";
+import db from "../config/db.js";
 
 const User = db.sequelize.define(
-    'users_tb',
+    'tb_users',
     {
         id: {
             type: db.Sequelize.INTEGER,

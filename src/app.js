@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
     });
 });
 
-import usuer from './routes/user.js';
+import user from './routes/userRouter.js';
 app.use('/usuarios', user);
 
 export default app;

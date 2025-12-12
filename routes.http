@@ -1,26 +1,31 @@
 # routes test file (REST Client vscode extention)
 
+@baseUrl = http://localhost:3001
+
 # root
-GET http://localhost:3001/
-
-###
-# list all users
-GET http://localhost:3001/users
-
-###
-# get user by id
-GET http://localhost:3001/users/4
+GET {{baseUrl}}/
 
 ###
 # create user
-POST http://localhost:3001/users
+POST {{baseUrl}}/usuarios
 Content-Type: application/json
 
 {
-    "id": 4,
-    "name": "João",
-    "email": "joao@email.com"
+    "username": "samuel",
+    "password": "samuel123",
+    "name": "Samuel",
+    "email": "samuel@email.com"
 }
+
+###
+# list all users
+GET {{baseUrl}}/usuarios
+
+###
+# get user by id
+GET {{baseUrl}}/usuarios/3
+
+
 
 ###
 # delete user by id

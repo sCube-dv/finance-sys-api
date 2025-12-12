@@ -1,5 +1,5 @@
-import User from "../models/Users";
-import bcrypt from "bcryptjs";
+import User from "../models/UsersModel.js";
+import bcrypt from "bcrypt";
 
 class UserController {
     /* constructor if needed */
@@ -26,8 +26,7 @@ class UserController {
         try {
             let newUser = await User.create(userObj);
             res.status(201).send({
-                message: "User created successfully",
-                user: newUser
+                message: "User " +newUser.name+ " created successfully",
             });
         } catch (error) {
             res.status(500).send({
@@ -36,6 +35,46 @@ class UserController {
             });
         }  
     } //end create method
+
+    showAllUsers = async (req, res) => {
+        try {
+            let users = await User.findAll({ attributes: { exclude: ['password'] } });
+            res.status(200).send(users);
+        } catch (error) {
+            res.status(500).send({
+                message: "Error fetching users",
+                error: error.message
+            });
+        }
+    } //end showAllUsers method
+
+    showUserById = async (req, res) => {
+        let userId = req.params.id;
+        try {
+            let user = await User.findByPk(userId, { attributes: { exclude: ['password'] } });
+            if (user) {
+                res.status(200).send(user);
+            } else {
+                res.status(404).send({
+                    message: "User not found"
+                });
+            }
+        } catch (error) {
+            res.status(500).send({
+                message: "Error fetching user",
+                error: error.message
+            });
+        }
+    } //end showUserById method
+
+    update = async (req, res) => {
+        // update user method
+    
+    }
+
+    delete = async (req, res) => {
+        // To be implemented
+    }   //end delete method 
 
     
 
